@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+<head><script>{% load static %}</script><script>{% load custom_tags %}</script><script>var jsonDataww = {{ json_data|safe }};</script>
+<!-- Mobile Specific Meta -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<!-- Favicon-->
+<link href="{% static 'img/fav.png' %}" rel="shortcut icon"/>
+<!-- Author Meta -->
+<meta content="CodePixar" name="author"/>
+<!-- Meta Description -->
+<meta content="" name="description"/>
+<!-- Meta Keyword -->
+<meta content="" name="keywords"/>
+<!-- meta character set -->
+<meta charset="utf-8"/>
+<!-- Site Title -->
+<title id="title_1"></title>
+<!--
+		CSS
+		============================================= -->
+<link href="{% static 'css/linearicons.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/themify-icons.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/nice-select.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/nouislider.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/ion.rangeSlider.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/ion.rangeSlider.skinFlat.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+</link></link>
+</head>
+<body>
+<!-- Start Header Area -->
+<header class="header_area sticky-header">
+<div class="main_menu">
+<nav class="navbar navbar-expand-lg navbar-light main_box">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<a class="navbar-brand logo_h" href="{% url 'web:index' %}"><img alt="" src="{% get_image_url 8 %}"/></a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+<ul class="nav navbar-nav menu_nav ml-auto">
+<li class="nav-item active"><a class="nav-link" href="{% url 'web:index' %}">Home</a></li>
+<li class="nav-item submenu dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" href="{% url 'web:shop' %}" role="button">Shop</a>
+</li>
+<li class="nav-item submenu dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" href="{% url 'shop:purchesed_list' %}" role="button">Order List</a>
+</li>
+<li class="nav-item submenu dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"  href="{% url 'web:blog' %}" role="button">Blogs</a>
+</li>
+<li class="nav-item"><a class="nav-link" href="{% url 'web:contact' %}">Contact</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li class="nav-item"><a class="cart" href="{% url 'shop:cart_list' %}"><span class="ti-bag"></span></a></li>
+<li class="nav-item">
+<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+</li>
+
+{% if user.is_authenticated %}
+  
+
+<li class="nav-item"><a class="nav-link" href="{% url 'shop:logout' %}">Logout</a></li>
+        {% else %}
+
+<li class="nav-item"><a class="nav-link" href="{% url 'shop:login' %}">Login/Register</a></li>
+ {% endif %}
+
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<div class="search_input" id="search_input_box">
+<div class="container">
+<form class="d-flex justify-content-between" role="search" action="{% url 'web:search' %}">
+<input class="form-control" id="search_input" name="search"  placeholder="Search Here"  type="text"/>
+<button class="btn" type="submit"></button>
+<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+</form>
+</div>
+</div>
+</header>
+<!-- End Header Area -->
+<!-- start banner Area -->
+<section class="banner-area">
+<div class="container">
+<div class="row fullscreen align-items-center justify-content-start">
+<div class="col-lg-12">
+<div class="active-banner-slider owl-carousel">
+<!-- single-slide -->
+<div class="row single-slide align-items-center d-flex">
+<div class="col-lg-5 col-md-6">
+<div class="banner-content">
+<h1 id="h1_1"></h1>
+<p id="p_1"></p>
+<div class="add-bag d-flex align-items-center">
+<a class="add-btn" href="{% url 'shop:cart_list' %}"><span class="lnr lnr-cross"></span></a>
+<span class="add-text text-uppercase">Add to Bag</span>
+</div>
+</div>
+</div>
+<div class="col-lg-7">
+<div class="banner-img">
+<img alt="" class="img-fluid" src="{% get_image_url 9 %}"/>
+</div>
+</div>
+</div>
+<!-- single-slide -->
+<div class="row single-slide">
+<div class="col-lg-5">
+<div class="banner-content">
+<h1 id="h1_2"></h1>
+<p id="p_2"></p>
+<div class="add-bag d-flex align-items-center">
+<a class="add-btn" href="{% url 'shop:cart_list' %}"><span class="lnr lnr-cross"></span></a>
+<span class="add-text text-uppercase">Add to Bag</span>
+</div>
+</div>
+</div>
+<div class="col-lg-7">
+<div class="banner-img">
+<img alt="" class="img-fluid" src="{% get_image_url 10 %}"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End banner Area -->
+<!-- start features Area -->
+<section class="features-area section_gap">
+<div class="container">
+<div class="row features-inner">
+<!-- single features -->
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-features">
+<div class="f-icon">
+<img alt="" src="{% get_image_url 11 %}"/>
+</div>
+<h6 id="h6_1"></h6>
+<p id="p_3"></p>
+</div>
+</div>
+<!-- single features -->
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-features">
+<div class="f-icon">
+<img alt="" src="{% get_image_url 12 %}"/>
+</div>
+<h6 id="h6_2"></h6>
+<p id="p_4"></p>
+</div>
+</div>
+<!-- single features -->
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-features">
+<div class="f-icon">
+<img alt="" src="{% get_image_url 13 %}"/>
+</div>
+<h6 id="h6_3"></h6>
+<p id="p_5"></p>
+</div>
+</div>
+<!-- single features -->
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-features">
+<div class="f-icon">
+<img alt="" src="{% get_image_url 14 %}"/>
+</div>
+<h6 id="h6_4"></h6>
+<p id="p_6"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- end features Area -->
+<!-- Start category Area -->
+<section class="category-area">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8 col-md-12">
+<div class="row">
+<div class="col-lg-8 col-md-8">
+<div class="single-deal">
+<div class="overlay"></div>
+<img alt="" class="img-fluid w-100" src="{% get_image_url 15 %}"/>
+<a class="img-pop-up" href="img/category/c1.jpg" target="_blank">
+<div class="deal-details">
+<h6 class="deal-title" id="h6_5"></h6>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4">
+<div class="single-deal">
+<div class="overlay"></div>
+<img alt="" class="img-fluid w-100" src="{% get_image_url 16 %}"/>
+<a class="img-pop-up" href="img/category/c2.jpg" target="_blank">
+<div class="deal-details">
+<h6 class="deal-title" id="h6_6"></h6>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4">
+<div class="single-deal">
+<div class="overlay"></div>
+<img alt="" class="img-fluid w-100" src="{% get_image_url 17 %}"/>
+<a class="img-pop-up" href="img/category/c3.jpg" target="_blank">
+<div class="deal-details">
+<h6 class="deal-title" id="h6_7"></h6>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-8 col-md-8">
+<div class="single-deal">
+<div class="overlay"></div>
+<img alt="" class="img-fluid w-100" src="{% get_image_url 18 %}"/>
+<a class="img-pop-up" href="img/category/c4.jpg" target="_blank">
+<div class="deal-details">
+<h6 class="deal-title" id="h6_8"></h6>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="single-deal">
+<div class="overlay"></div>
+<img alt="" class="img-fluid w-100" src="{% get_image_url 19 %}"/>
+<a class="img-pop-up" href="img/category/c5.jpg" target="_blank">
+<div class="deal-details">
+<h6 class="deal-title" id="h6_9"></h6>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End category Area -->
+<!-- start product Area -->
+<section class="owl-carousel active-product-area section_gap">
+<!-- single product slide -->
+<div class="single-product-slider">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-6 text-center">
+<div class="section-title">
+<h1 id="h1_3"></h1>
+<p id="p_7"></p>
+</div>
+</div>
+</div>
+<div class="row">
+ 
+    {% for item in item %}
+<!-- single product -->
+<div class="col-lg-3 col-md-6">
+<div class="single-product">
+    {% with first_image=item.images.all.0 %}
+
+    <a href="{% url 'shop:item_detail' item_id=item.id %}"><img src="{{first_image.image.url}}" alt=""></a>
+{% endwith %}
+<div class="product-details">
+<h6 ><a href="{% url 'shop:item_detail' item_id=item.id %}">{{item.name}}</a></h6>
+<div class="price">
+<h6>
+    {% if item.disc > 0 %}
+    {% with discounted_price=item.price|calculate_discounted_price:item.disc|floatformat:2 %}
+<ins>{{ discounted_price }} birr<br><del>{{ item.price }} birr</del> </ins>
+    {% endwith %}
+{% else %}
+    <ins>{{ item.price }} birr</ins>
+{% endif %}
+
+</h6>
+
+</div>
+<div class="prd-bottom">
+<a class="social-info" href="{% url 'shop:cart_list' %}">
+<span class="ti-bag"></span>
+<p class="hover-text" id="p_36"></p>
+</a>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</section>
+<!-- end product Area -->
+<!-- Start exclusive deal Area -->
+<section class="exclusive-deal-area">
+<div class="container-fluid">
+<div class="row justify-content-center align-items-center">
+<div class="col-lg-6 no-padding exclusive-left">
+<div class="row clock_sec clockdiv" id="clockdiv">
+<div class="col-lg-12">
+<h1 id="h1_5"></h1>
+<p id="p_73"></p>
+</div>
+<div class="col-lg-12">
+<div class="row clock-wrap">
+<div class="col clockinner1 clockinner">
+<h1 class="days" id="h1_6"></h1>
+<span class="smalltext">Days</span>
+</div>
+<div class="col clockinner clockinner1">
+<h1 class="hours" id="h1_7"></h1>
+<span class="smalltext">Hours</span>
+</div>
+<div class="col clockinner clockinner1">
+<h1 class="minutes" id="h1_8"></h1>
+<span class="smalltext">Mins</span>
+</div>
+<div class="col clockinner clockinner1">
+<h1 class="seconds" id="h1_9"></h1>
+<span class="smalltext">Secs</span>
+</div>
+</div>
+</div>
+</div>
+<a class="primary-btn" href="">Shop Now</a>
+</div>
+<div class="col-lg-6 no-padding exclusive-right">
+<div class="active-exclusive-product-slider">
+<!-- single exclusive carousel -->
+<div class="single-exclusive-slider">
+<img alt="" class="img-fluid" src="{% get_image_url 36 %}"/>
+<div class="product-details">
+<div class="price">
+<h6 id="h6_58"></h6>
+<h6 class="l-through" id="h6_59"></h6>
+</div>
+<h4 id="h4_1"></h4>
+<div class="add-bag d-flex align-items-center justify-content-center">
+<a class="add-btn" href="{% url 'shop:cart_list' %}"><span class="ti-bag"></span></a>
+<span class="add-text text-uppercase">Add to Bag</span>
+</div>
+</div>
+</div>
+<!-- single exclusive carousel -->
+<div class="single-exclusive-slider">
+<img alt="" class="img-fluid" src="{% get_image_url 37 %}"/>
+<div class="product-details">
+<div class="price">
+<h6 id="h6_60"></h6>
+<h6 class="l-through" id="h6_61"></h6>
+</div>
+<h4 id="h4_2"></h4>
+<div class="add-bag d-flex align-items-center justify-content-center">
+<a class="add-btn" href="{% url 'shop:cart_list' %}"><span class="ti-bag"></span></a>
+<span class="add-text text-uppercase">Add to Bag</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End exclusive deal Area -->
+<!-- Start brand Area -->
+
+<section class="brand-area section_gap">
+<div class="container">
+<div class="row">
+    {% for cli in clien %}
+
+    <img src="{{cli.image.url}}" />
+    <h1>{{cli.name}}</h1>
+  
+  {% endfor %}
+</div>
+</div>
+</section>
+
+<!-- End brand Area -->
+<!-- Start related-product Area -->
+<section class="related-product-area section_gap_bottom">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-6 text-center">
+<div class="section-title">
+<h1 id="h1_10"></h1>
+<p id="p_74"></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 43 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_62"></h6>
+<h6 class="l-through" id="h6_63"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 44 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_64"></h6>
+<h6 class="l-through" id="h6_65"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 45 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_66"></h6>
+<h6 class="l-through" id="h6_67"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 46 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_68"></h6>
+<h6 class="l-through" id="h6_69"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 47 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_70"></h6>
+<h6 class="l-through" id="h6_71"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 48 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_72"></h6>
+<h6 class="l-through" id="h6_73"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 49 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_74"></h6>
+<h6 class="l-through" id="h6_75"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 50 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_76"></h6>
+<h6 class="l-through" id="h6_77"></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="single-related-product d-flex">
+<a href="#"><img alt="" src="{% get_image_url 51 %}"/></a>
+<div class="desc">
+<a class="title" href="#">Black lace Heels</a>
+<div class="price">
+<h6 id="h6_78"></h6>
+<h6 class="l-through" id="h6_79"></h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="ctg-right">
+<a href="#" target="_blank">
+<img alt="" class="img-fluid d-block mx-auto" src="{% get_image_url 52 %}"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End related-product Area -->
+
+<!-- start footer Area -->
+
+<footer class="footer-area section_gap">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-footer-widget">
+<h6 id="h6_83"></h6>
+<p id="p_108"></p>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-6">
+<div class="single-footer-widget">
+<h6 id="h6_84"></h6>
+<p id="p_109"></p>
+<div class="" id="mc_embed_signup">
+<form action="{% url 'web:collect_email' %}" class="form-inline" method="get" novalidate="true" target="_blank">
+    {% csrf_token %}
+	
+<div class="d-flex flex-row">
+<input class="form-control" name="email"  onblur="this.placeholder = 'Enter Email '" onfocus="this.placeholder = ''" placeholder="Enter Email" required="" type="email"/>
+<button class="click-btn btn btn-default" name="commit"><i aria-hidden="true" class="fa fa-long-arrow-right"></i></button>
+<div style="position: absolute; left: -5000px;">
+<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" type="text" value=""/>
+</div>
+<!-- <div class="col-lg-4 col-md-4">
+												<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+											</div>  -->
+</div>
+<div class="info"></div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="single-footer-widget mail-chimp">
+<h6 class="mb-20" id="h6_85"></h6>
+<ul class="instafeed d-flex flex-wrap">
+<li><img alt="" src="{% get_image_url 67 %}"/></li>
+<li><img alt="" src="{% get_image_url 68 %}"/></li>
+<li><img alt="" src="{% get_image_url 69 %}"/></li>
+<li><img alt="" src="{% get_image_url 70 %}"/></li>
+<li><img alt="" src="{% get_image_url 71 %}"/></li>
+<li><img alt="" src="{% get_image_url 72 %}"/></li>
+<li><img alt="" src="{% get_image_url 73 %}"/></li>
+<li><img alt="" src="{% get_image_url 74 %}"/></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-2 col-md-6 col-sm-6">
+<div class="single-footer-widget">
+<h6 id="h6_86"></h6>
+<p id="p_110"></p>
+<div class="footer-social d-flex align-items-center">
+
+    {% for socilamedia in social %}
+    {% if socilamedia.social_media.name == "Facebook" %}
+    <a href="{{socilamedia.link}}"><i class="fab fa-facebook"></i></a>
+    {% elif socilamedia.social_media.name == "Instagram" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-instagram"></i></a>
+    {% elif socilamedia.social_media.name == "Twitter" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-twitter"></i></a>
+    {% elif socilamedia.social_media.name == "LinkedIn" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-linkedin"></i></a>
+    {% elif socilamedia.social_media.name == "Snapchat" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-snapchat"></i></a>
+    {% elif socilamedia.social_media.name == "Pinterest" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-pinterest"></i></a>
+    {% elif socilamedia.social_media.name == "Reddit" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-reddit"></i></a>
+    {% elif socilamedia.social_media.name == "TikTok" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-tiktok"></i></a>
+    {% elif socilamedia.social_media.name == "YouTube" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-youtube"></i></a>
+    {% elif socilamedia.social_media.name == "WhatsApp" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-whatsapp"></i></a>
+    {% elif socilamedia.social_media.name == "WeChat" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-weixin"></i></a>
+    {% elif socilamedia.social_media.name == "Tumblr" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-tumblr"></i></a>
+    {% elif socilamedia.social_media.name == "Twitch" %}
+    <a href="{{socilamedia.link}}"><i class="fab fa-twitch"></i></a>
+    {% elif socilamedia.social_media.name == "Telegram" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-telegram"></i></a>
+    {% elif socilamedia.social_media.name == "Discord" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-discord"></i></a>
+    {% elif socilamedia.social_media.name == "Clubhouse" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-houzz"></i></a>
+    {% elif socilamedia.social_media.name == "Viber" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-viber"></i></a>
+    {% elif socilamedia.social_media.name == "LINE" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-line"></i></a>
+    {% elif socilamedia.social_media.name == "QQ" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-qq"></i></a>
+    {% elif socilamedia.social_media.name == "Sina Weibo" %}
+    <a href="{{socilamedia.link}}"> <i class="fab fa-weibo"></i></a>
+    {% endif %}
+{% endfor %}
+
+
+</div>
+</div>
+</div>
+<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+<p class="footer-text m-0"> Copyright © All rights reserved | This template is made by <a href="http://zufan.et">zufan.et</a></p>
+</div>
+</div>
+</footer>
+<!-- End footer Area -->
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script crossorigin="anonymous" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+<script src="{% static 'js/nouislider.min.js' %}"></script>
+<script src="{% static 'js/countdown.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!--gmaps Js-->
+<script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE' %}"></script>
+<script src="{% static 'js/gmaps.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'webfunction.js' %}"></script><script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Iterate over each key in the JSON data
+        for (var key in jsonDataww) {
+            if (jsonDataww.hasOwnProperty(key)) {
+                var element = document.getElementById(key);
+                if (element) {
+                    if(key.startsWith("a")){
+                        element.href = jsonDataww[key['link']];
+                    }else{
+                        element.textContent = jsonDataww[key];
+                    }
+                }
+            }
+        }
+    });
+    </script></body>
+</html>
