@@ -133,7 +133,7 @@
 						{% if item.active %}
                         <p class = "avaibility"><i class= "fa fa-circle"></i>In Stock</p>
                         {% else %}
-                        <p class = "avaibility"><i class= "fa fa-circle"></i>In Stock</p>
+                        <p class = "unavaibility"><i class= "fa fa-circle"></i> Out of Stock</p>
                          {% endif %}
                          {% for opi in item.descriptions.all %}
                          <p>{{opi.text}}</p>
@@ -163,6 +163,7 @@
 			</div>
 		</div>
 	</div>
+	  {% endfor %}
 	<!--================End Single Product Area =================-->
 
 	<br> <br> <br>
